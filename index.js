@@ -48,3 +48,7 @@
 
     // Display the current day of the week in your HTML
     document.getElementById("currentDayOfWeek").textContent = "Current day of the week: " + daysOfWeek[dayOfWeekIndex];
+
+
+    const year = new Date().getFullYear()
+    document.getElementById("copyright-text").textContent = "Copyright Ⓒ Ahnibaba." + year;

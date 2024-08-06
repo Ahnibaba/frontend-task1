@@ -26,10 +26,10 @@
             <ul id="sidemenu">
               <li><a href="#header">Home</a></li>
               <li><a href="#about">About</a></li>
-              <li><a href="#goals">Goals</a></li>
+              <li><a href="#goals">Project</a></li>
               <!-- <li><a href="#services">Services</a></li> -->
-              <li><a href="http://hng.tech/learn"data-testid="hngLink">HNG Learn</a></li>
-              <li><a href="http://keyword.dog/" data-testid="keywordLink">Keyword Link</a></li>
+              <li><a href="#services"data-testid="hngLink">Services</a></li>
+              <li><a href="#contact" data-testid="keywordLink">Contact</a></li>
               <li><a href="http://scrapeanyweb.site/" data-testid="scrapeanywebLink">Scrapeany</a></li>
               <!-- <li><a href="#contact">Contact</a></li> -->
               <i class="fa-solid fa-xmark" onclick="closemenu()"></i>
@@ -60,14 +60,14 @@
           <div class="about-col-2">
             <h1 class="sub-title">About Me</h1>
             <p>
-              As a front-end developer, you specialize in merging creativity
+              Am a front-end developer, I specialize in merging creativity
               with technical proficiency to build captivating user interfaces.
-              Your proficiency in HTML, CSS, and JavaScript enables you to
-              transform design concepts into dynamic web experiences that
-              resonate with users. You prioritize accessibility and responsive
-              design, ensuring your creations are inclusive and functional
+              am proficient in HTML, CSS, and JavaScript which allow for the
+              transformation of design concepts into dynamic web experiences that
+              resonate with users. I prioritize accessibility and responsive
+              design, ensuring the creations are inclusive and functional
               across various devices and platforms. Collaborating closely with
-              design teams and backend developers, you leverage your expertise
+              design teams and backend developers, I leverage my expertise
               to deliver polished frontend solutions that enhance user
               engagement and satisfaction.
             </p>
@@ -331,12 +331,12 @@
                 ><i class="fa-brands fa-x-twitter"></i
               ></a>
             </div>
-            <a href="" class="btn btn2">Download CV</a>
+            <a href="images/Professional CV Resume (1).pdf" download class="btn btn2">Download CV</a>
           </div>
           <div class="contact-right">
-            <form>
-              <input type="text" name="name" placeholder="Your Name" required />
-              <input type="email" placeholder="Your Email" required />
+            <form name="submit-to-google-sheet">
+              <input type="text" name="Name" placeholder="Your Name" required />
+              <input type="email" name="Email" placeholder="Your Email" required />
               <textarea
                 name="Message"
                 rows="6"
@@ -344,6 +344,7 @@
               ></textarea>
               <button type="submit" class="btn btn2">Submit</button>
             </form>
+            <span id="msg"></span>
           </div>
         </div>
       </div>
@@ -353,5 +354,25 @@
     </div>
 
     <script src="./index.js"></script>
+    <script>
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbzSyMMbMIBDSZntkBIarLqYSH0mE4qQezoJix4xqjVQdlGoivfNHNHQF6X2pQVjVsEKhQ/exec'
+      const form = document.forms['submit-to-google-sheet']
+      const msg = document.getElementById("msg")
+
+      form.addEventListener('submit', e => {
+       e.preventDefault()
+        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+          .then(response => {
+             msg.innerHTML = "Message sent successfully"
+             setTimeout(() => {
+              msg.innerHTML = ""
+             }, 5000)
+             form.reset()
+          })
+          .catch(error => console.error('Error!', error.message))
+          
+      })
+    </script>
   </body>
 </html>
+

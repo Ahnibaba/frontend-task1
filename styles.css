@@ -124,6 +124,14 @@ nav ul li a:hover::after{
     
     flex-basis: 40%;  
 }
+.about-col-2 p {
+    
+    margin-top: 15px;
+}
+.about-col-2 {
+    
+    flex-basis: 40%;  
+}
 
 .sub-title {
     color: #6f7471;
@@ -447,6 +455,12 @@ nav .fa-solid {
    background-color: #96C9F4;
    color: #fff;
    margin: 12px;
+}
+
+#msg {
+    color: #61b752;
+    margin-top: -40px;
+    display: block;
 }
 
 
